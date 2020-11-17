@@ -1,37 +1,33 @@
 class Public::AddressesController < ApplicationController
 
-  before_action :authenticate_user!
-  before_action :ensure_correct_user, only: [:edit, :update]
 
   def new
+    @adress = Adress.new
   end
 
-  def index
-    @customers = Customers.all
-  end
+  def create
+    @adress = Adress.new(adress_params)
 
-  def edit
-  end
-
-  def update
-    if @customer.update(customer_params)
-      redirect_to customer_path(@customer), notice: "You have updated user successfully."
+    if @adress.save
+      # redirect_to adresses_url(id: current_user.id)
+      redirect_to adresses_path
     else
-      render "edit"
+      render 'new'
     end
   end
+  
+  def edit
+    @adress = Adress.new
+  end
+  
+  
 
-  # private
+  private
+  def adress_params
+    # params.require(:adress).permit(:user_id, :postal_code, :city, :street, :others, :c_adress_flg, :s_adress_flg)
+    params.require(:adress).permit(:user_id, :postal_code, :name)
+  end
 
-  # def customer_params
-  #   params.require(:user).permit(:name, :introduction, :profile_image)
-  # end
 
-  # def ensure_correct_user
-  #   @user = User.find(params[:id])
-  #   unless @user == current_user
-  #     redirect_to user_path(current_user)
-  #   end
-  # end
 
 end
