@@ -76,15 +76,6 @@
               </tbody>
 
               <tbody>
-                <th>メールアドレス</th>
-                <th>
-                <div class="field">
-                  <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-                </div>
-                </th>
-              </tbody>
-
-              <tbody>
                 <th>パスワード
                 <% if @minimum_password_length %>
                   <em>（<%= @minimum_password_length %> 文字以上）</em>
