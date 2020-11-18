@@ -10,17 +10,31 @@ class Public::AddressesController < ApplicationController
 
     if @adress.save
       # redirect_to adresses_url(id: current_user.id)
-      redirect_to adresses_path
+      redirect_to public_adresses_path
     else
       render 'new'
     end
   end
-  
+
   def edit
-    @adress = Adress.new
+    @addresse = find_address_by_id
   end
-  
-  
+
+  def update
+    @addresse = find_address_by_id
+    @addresse.update(addresse_params)
+    redirect_to public_address_path
+  end
+
+  # def edit
+  #   @post = Post.find_by(id: params[:id])
+  # end
+  # def update
+  #   @post = Post.find_by(id: params[:id])
+  #   @post.update(title: params[:title])
+  #   redirect_to("/")
+  # end
+
 
   private
   def adress_params
