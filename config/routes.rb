@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
  #管理者
   get '/admins', to: 'admins/homes#top'
   devise_for :admins
@@ -29,4 +30,13 @@ Rails.application.routes.draw do
   get '/orders/complete' => 'orders#complete'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  namespace :public do
+  resources :addresses, :homes, :items, :cart_items, :orders
+  end
+
+  namespace :admins do
+  resources :homes, :items, :orders , :genres, :order_details
+  end
+
 end
