@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'users/show'
  #管理者
   get '/admins', to: 'admins/homes#top'
   devise_for :admins
