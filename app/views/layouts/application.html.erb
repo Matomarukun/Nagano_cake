@@ -11,8 +11,8 @@
 
   <body>
 
-    <% if customers_signed_in? %>
-    　<li>ようこそ、<%= current_user.name %>さん！
+    <% if customer_signed_in? %>
+    　<li>ようこそさん！
       <li><%= link_to ' マイページ', customers_my_page_path, class: "btn btn-primary" %></li>
       <li><%= link_to ' 商品一覧', items_path, class: "btn btn-success" %></li>
       <li><%= link_to ' カート', cart_items_path, class: "btn btn-info" %></li>
