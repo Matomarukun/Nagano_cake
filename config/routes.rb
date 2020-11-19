@@ -12,8 +12,10 @@ Rails.application.routes.draw do
     resources :genres, only:[:index, :edit, :create, :update]
   end
 
-  #会員
-  get '/', to: 'homes#top'
+  # 会員
+  root to: 'public/homes#top'
+  get '/about' => 'public/homes#about'
+
   devise_for :customers
 
   resources :customers, only:[:edit, :update]
