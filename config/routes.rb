@@ -18,8 +18,10 @@ Rails.application.routes.draw do
     resources :genres, only:[:index, :edit, :create, :update]
   end
 
+
   root to: 'public/homes#top'
   get '/about' => 'public/homes#about'
+
 
   devise_for :customers
 
@@ -39,11 +41,11 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   namespace :public do
-  resources :addresses, :homes, :items, :cart_items, :orders
+   resources :addresses, :homes, :items, :cart_items, :orders
   end
 
   namespace :admins do
-  resources :homes, :items, :orders , :genres, :order_details
+   resources :homes, :items, :orders , :genres, :order_details
   end
 
 end
