@@ -16,6 +16,12 @@ class Public::AddressesController < ApplicationController
     end
   end
 
+  
+  def edit
+    @adress = Adress.new
+  end
+ 
+
   def edit
     @addresse = find_address_by_id
   end

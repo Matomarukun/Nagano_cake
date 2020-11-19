@@ -10,6 +10,7 @@
   </head>
 
   <body>
+
     <% if customers_signed_in? %>
     　<li>ようこそ、<%= current_user.name %>さん！
       <li><%= link_to ' マイページ', customers_my_page_path, class: "btn btn-primary" %></li>
@@ -29,5 +30,8 @@
       <li><%= link_to ' ログイン', new_customer_session_path, class: "btn btn-danger" %></li>
     <% end %>
     <%= yield %>
+    <footer>
+
+    </footer>
   </body>
 </html>

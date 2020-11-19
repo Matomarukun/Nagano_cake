@@ -1,0 +1,39 @@
+// Place all the styles related to the public::homes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.text {
+  font-size: 20px;
+}
+
+// top
+.genres {
+  background-color: yellow;
+  padding-right: 40px;
+  list_style: none;
+}
+
+.top {
+  background-color: red;
+}
+.pr {
+  margin-top: 20px;
+  background-color: green;
+  margin: 0 180px;
+  // margin-right: 50%;
+}
+.font {
+   background-color: blue;
+   margin: 0 50px;
+}
+
+// about
+.about {
+  font-size: 70px;
+  padding-bottom: 30px;
+}
+.image_box {
+  width: 460px;
+  height: 180px;
+  background-color: red;
+}
