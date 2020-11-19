@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    get 'genres/index'
+    get 'genres/create'
+    get 'genres/edit'
+    get 'genres/update'
+  end
  #管理者
   get '/admins', to: 'admins/homes#top'
   devise_for :admins
@@ -12,7 +18,6 @@ Rails.application.routes.draw do
     resources :genres, only:[:index, :edit, :create, :update]
   end
 
-  # 会員
   root to: 'public/homes#top'
   get '/about' => 'public/homes#about'
 

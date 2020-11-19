@@ -1,0 +1,35 @@
+<div class='row'>
+<h1>ジャンル一覧・追加</h1>
+
+<%= form_for(@genre) do |f|%>
+
+    <div class="field">
+      <%= f.label :name, 'ジャンル' %><br />
+      <%= f.text_field :name %>
+    </div>
+
+    <div class="actions">
+    <%= f.submit "追加する" ,class: 'btn btn-success' %>
+    </div>
+<% end %>
+
+<tbody>
+   <table border="1">
+
+      <tr>
+        <th>ジャンル</th>
+        <th>状態</th>
+        <th>　　　　</th>
+      </tr>
+      <tr>
+      <% @genres.each do |genre| %>
+        <th><%= genre.body %></th>
+        <th><%= name.body %></th>
+        <% if @addresse.user == current_user %>
+          <td><%= link_to 'Edit', edit_public_address_path(@addresse), class: "btn-sm btn-succes" %></td>
+          <td><%= link_to 'Destroy', public_address_path(@addresse), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn-sm btn-danger" %></td>
+        <% end %>
+      </tr>
+      <% end %>
+    </table>
+  </tbody>
