@@ -1,3 +1,6 @@
+<div class='row'>
+<h1>配送先登録・一覧</h1>
+
 <%= form_for(@adress) do |f|%>
 
 <!-- 郵便番号 -->
@@ -5,7 +8,9 @@
       <%= f.label :postal_code, '郵便番号' %>
       <%= f.text_field :postal_code, autofocus: true %>
     </div>
+
 <!--市区町村-->
+
     <div class="field">
       <%= f.label :adress, '住所' %>
       <%= f.text_field :adress, autofocus: true %>
@@ -22,6 +27,7 @@
 <% end %>
 
  <tbody>
+
     <% @addresse.each do |addresse| %>
       <tr id="addresse_<%= addresse.id %>">
         <td>
@@ -37,3 +43,28 @@
       </tr>
     <% end %>
   </tbody>
+
+   <table border="1">
+
+      <tr>
+        <th>郵便番号</th>
+        <th>住所</th>
+        <th>宛名</th>
+        <th>　　　　</th>
+        <th>　　　　</th>
+      </tr>
+      <tr>
+      <% @addresse.each do |addresse| %>
+        <th><%= postal_code.body %></th>
+        <th><%= addresse.body %></th>
+        <th><%= name.body %></th>
+        <% if @addresse.user == current_user %>
+          <td><%= link_to 'Edit', edit_public_address_path(@addresse), class: "btn-sm btn-succes" %></td>
+          <td><%= link_to 'Destroy', public_address_path(@addresse), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn-sm btn-danger" %></td>
+        <% end %>
+      </tr>
+      <% end %>
+    </table>
+  </tbody>
+</div>
+
