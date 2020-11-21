@@ -41,7 +41,6 @@ ActiveRecord::Schema.define(version: 2020_11_19_055925) do
     t.datetime "updated_at", null: false
   end
 
-
   create_table "customers", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
