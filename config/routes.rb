@@ -1,34 +1,39 @@
 Rails.application.routes.draw do
 
   namespace :admin do
-    get 'items/index'
-    get 'items/show'
-    get 'items/edit'
-    get 'items/update'
-    get 'items/new'
-    get 'items/create'
+    # get 'items/index'
+    # # get 'items/show'
+    # get 'items/:id' => 'items#show'
+    # get 'items/edit'
+    # get 'items/update'
+    # get 'items/new'
+    # post 'items/create'
+    resources :items, except:[:destroy]
   end
+
+
   namespace :admin do
     get 'order_details/update'
   end
   namespace :admin do
     get 'orders/index'
     get 'orders/show'
-    get 'orders/update'
+    patch 'orders/update'
   end
   namespace :admin do
     get 'customers/index'
     get 'customers/show'
     get 'customers/edit'
-    get 'customers/update'
+    patch 'customers/update'
   end
   namespace :admin do
     get 'genres/index'
-    get 'genres/create'
+    post 'genres/create'
     get 'genres/edit'
-    get 'genres/update'
+    patch 'genres/update'
   end
- #管理者
+
+#管理者
   get '/admins', to: 'admins/homes#top'
   devise_for :admins
 
@@ -40,7 +45,7 @@ Rails.application.routes.draw do
     resources :genres, only:[:index, :edit, :create, :update]
   end
 
-
+  #会員
   root to: 'public/homes#top'
   get '/about' => 'public/homes#about'
 
@@ -63,11 +68,11 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   namespace :public do
-   resources :addresses, :homes, :items, :cart_items, :orders
+  resources :addresses, :homes, :items, :cart_items, :orders
   end
 
   namespace :admins do
-   resources :homes, :items, :orders , :genres, :order_details
+  resources :homes, :items, :orders , :genres, :order_details
   end
 
 end

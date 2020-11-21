@@ -1,2 +1,50 @@
-<h1>Admin::Items#new</h1>
-<p>Find me in app/views/admin/items/new.html.erb</p>
+<div class="container">
+  <div class="row">
+    <h3><mark>商品新規登録</mark></h3>
+    <div class="col-md-5">
+    <%= form_with model: @item, url: admin_items_path, local:true do |f| %>
+      <%= attachment_image_tag @item, :image, :fill, 300, 180, format: 'jpeg' %>
+        <%= f.attachment_field :image %>
+    </div>
+    <div class="col-md-7">
+        <div>
+          <p>
+            <%= f.label :name, "商品名" %>
+            <%= f.text_field :name%>
+          </p>
+        </div>
+        <div>
+          <p>
+            <%= f.label :introduction, "商品説明" %>
+            <%= f.text_area :introduction%>
+          </p>
+        </div>
+        <div>
+          <p>
+            <!--<= f.label :genre_id, "ジャンル" >-->
+            <!--<= f.select :genre_id, [["ケーキ"], ["焼き菓子"], ["プリン"], ["キャンディ"]], include_blank: "--選択してください--" >-->
+          </p>
+        </div>
+        <div>
+          <p>
+            <%= f.label :price, "税抜価格" %>
+            <%= f.text_field :price%>円
+          </p>
+        </div>
+        <div>
+          <p>
+            <%= f.label :is_active, "販売ステータス" %>
+            <%= f.select :is_active, [["販売中", true], ["売切れ", nil]], {include_blank: "--選択してください--"}%>
+          </p>
+        </div>
+        <div>
+          <%= f.submit "新規登録", class: "btn btn-info active" %>
+          <%= link_to "一覧", admin_items_path %>
+        </div>
+      <% end %>
+    </div>
+
+    <div>
+    </div>
+  </div>
+</div>
