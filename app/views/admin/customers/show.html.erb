@@ -1,2 +1,49 @@
-<h1>Admin::Customers#show</h1>
-<p>Find me in app/views/admin/customers/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <h3><mark><% @customer.name %> さん　の会員詳細</mark></h3>
+    <!--<div class="pull-right">-->
+    <!--  %=link_to "", new_admin_item_path, class: "glyphicon glyphicon-plus-sign add_icon "%>-->
+    <!--</div>-->
+    <table class="table table-hover table-inverse">
+      <thead>
+        <tr>
+          <th>顧客ID</th>
+          <th>氏名</th>
+          <th>フリガナ</th>
+          <th>郵便番号</th>
+          <th>住所</th>
+          <th>電話番号</th>
+          <th>メールアドレス</th>
+        </tr>
+      </thead>
+      <tbody>
+          <%= form_with model: @customer, local:true do |customer| %>
+        <tr>
+          <td>
+            <p><%= customer.id %><%= customer.is_deleted == true ? "有効会員" : "無効会員" %></p>
+          </td>
+          <td>
+            <p><%= customer.name %></p>
+          </td>
+          <td>
+            <p><%= customer.name_kana %></p>
+          </td>
+          <td>
+            <p><%= customer.postal_code %></p>
+          </td>
+          <td>
+            <p><%= customer.addresses %></p>
+          </td>
+          <td>
+            <p><%= customer.email %></p>
+          </td>
+        </tr>
+          <% end %>
+      </tbody>
+    </table>
+
+   　　 <!--<div%= link_to '編集する', edit_admin_customer_path(customer), class: "btn-sm btn-success" %></div>-->
+     　<!--<div>%= link_to '注文履歴一覧をみる', public_address_path(address),  class: "btn-sm btn-danger" %></div>-->
+      </tr>
+  </div>
+</div>
