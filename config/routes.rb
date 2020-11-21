@@ -1,14 +1,17 @@
 Rails.application.routes.draw do
+  
  #管理者
   get '/admin', to: 'admin/homes#top'
   devise_for :admin
   namespace :admin do
+
     resources :customers, only:[:index, :show, :edit, :update]
     resources :orders, only:[:index, :show, :update]
     resources :order_details, only:[:update]
     resources :items, except:[:destroy]
     resources :genres, only:[:index, :edit, :create, :update]
   end
+  
   #会員
   root to: 'public/homes#top'
   get '/about' => 'public/homes#about'
@@ -30,3 +33,4 @@ Rails.application.routes.draw do
   get '/orders/complete' => 'orders#complete'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
+
