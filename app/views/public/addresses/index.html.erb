@@ -1,21 +1,22 @@
-<div class='row'>
-<h1>配送先登録・一覧</h1>
-<%= form_for(@adress) do |f|%>
+<div class="container">
+ <div class='row'>
+  <h1>配送先登録・一覧</h1>
+    <%= form_with model: @address, local:true, url:public_addresses_path do |f| %>
+    <!--%= form_with model:book,local:true do |f| %>-->
 
-<!-- 郵便番号 -->
     <div class="field">
       <%= f.label :postal_code, '郵便番号' %>
-      <%= f.text_field :postal_code, autofocus: true %>
+      <%= f.text_field :postal_code, autofocus: true, size: 8 %>
     </div>
 
     <div class="field">
-      <%= f.label :adress, '住所' %>
-      <%= f.text_field :adress, autofocus: true %>
+      <%= f.label :address, '住所' %>
+      <%= f.text_field :address, autofocus: true, size: 50 %>
     </div>
 
     <div class="field">
       <%= f.label :name, '宛名' %><br />
-      <%= f.text_field :name %>
+      <%= f.text_field :name, size: 30 %>
     </div>
 
     <div class="actions">
@@ -30,20 +31,18 @@
         <th>郵便番号</th>
         <th>住所</th>
         <th>宛名</th>
-        <th>　　　　</th>
-        <th>　　　　</th>
+        <th colspan="2">    </th>
       </tr>
       <tr>
-      <% @addresse.each do |addresse| %>
-        <th><%= postal_code.body %></th>
-        <th><%= addresse.body %></th>
-        <th><%= name.body %></th>
-        <% if @addresse.user == current_user %>
-          <td><%= link_to 'Edit', edit_public_address_path(@addresse), class: "btn-sm btn-succes" %></td>
-          <td><%= link_to 'Destroy', public_address_path(@addresse), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn-sm btn-danger" %></td>
-        <% end %>
+      <% @addresses.each do |address| %>
+        <th><%= address.postal_code %></th>
+        <th><%= address.address %></th>
+        <th><%= address.name %></th>
+        <td><%= link_to '編集する', edit_public_address_path(address), class: "btn-sm btn-success" %></td>
+        <td><%= link_to '削除する', public_address_path(address), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn-sm btn-danger" %></td>
       </tr>
       <% end %>
     </table>
   </tbody>
+ </div>
 </div>
