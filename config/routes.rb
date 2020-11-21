@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   namespace :admin do
     # get 'items/index'
     # # get 'items/show'
@@ -33,7 +34,9 @@ Rails.application.routes.draw do
     patch 'genres/update'
   end
 
-#管理者
+  
+ #管理者
+
   get '/admins', to: 'admins/homes#top'
   devise_for :admins
 
