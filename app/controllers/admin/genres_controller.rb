@@ -7,13 +7,13 @@ class Admin::GenresController < ApplicationController
 
   def create
     @genre = Genre.new(genre_params)
-    @genre.admin_id = current_admin.id
+    # @genre.admin_id = current_admin.id
 
     if @genre.save
-      redirect_to new_admins_genre_path
+      redirect_to admin_genres_path
     else
       @genre = Genre.all
-      render 'new'
+      render 'index'
     end
   end
 
@@ -22,8 +22,9 @@ class Admin::GenresController < ApplicationController
   end
 
   def update
+    @genre = Genre.find(params[:id])
     if @genre.update(genre_params)
-      redirect_to new_admins_genre_path(@genre), notice: "You have updated address successfully."
+      redirect_to admin_genres_path(@genre), notice: "You have updated address successfully."
     else
       render "edit"
     end
