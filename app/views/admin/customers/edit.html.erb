@@ -1,2 +1,57 @@
-<h1>Admin::Customers#edit</h1>
-<p>Find me in app/views/admin/customers/edit.html.erb</p>
+<div class="container">
+  <div class="row">
+    <h3><mark><% @customer.name %> さん　の会員情報編集</mark></h3>
+
+    <table class="table table-hover table-inverse">
+      <tbody>
+      <%= form_with model: @customer, local:true do |f| %>
+     <td>
+      <%= customer.id %>
+     </td>
+
+　　 <div class="field">
+      <%= f.label :name, '氏名' %>
+      <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %><%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
+     </div>
+     </div>
+
+     <div class="field">
+      <%= f.label :name_kana, 'フリガナ' %>
+      <%= f.text_field :last_name_kana, autofocus: true, autocomplete: "last_name_kana" %><%= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana" %>
+     </div>
+
+     <div class="field">
+      <%= f.label :postal_code, '郵便番号' %>
+      <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code" %>
+     </div>
+
+     <div class="field">
+      <%= f.label :adress, '住所' %>
+      <%= f.text_field :address, autofocus: true, autocomplete: "address" %>
+     </div>
+
+     <div class="field">
+      <%= f.label :phone_number, '電話番号' %>
+      <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number" %>
+     </div>
+
+     <div class="field">
+      <%= f.label :name, '電話番号' %>
+      <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number" %>
+     </div>
+
+     <div class="field">
+      <%= f.label :email, 'メールアドレス' %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+     </div>
+
+     <div>
+     <%= f.select :is_active, [['有効',0],['無効',1]], { include_blank: true, selected: 0 } %>
+     </div>
+
+     <div class="actions">
+      <%= f.submit "変更を保存する" ,class: 'btn btn-success' %>
+     </div>
+      <% end %>
+  </table>
+</div>
