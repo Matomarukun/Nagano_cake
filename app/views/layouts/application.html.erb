@@ -17,8 +17,9 @@
     <% if customer_signed_in? %>
     　<li>ようこそ<%= current_customer.first_name_kana %>さん！
 
+       
+      <li><%= link_to ' マイページ', my_page_customers_path, class: "btn btn-primary" %></li>
 
-      <!--<li>%= link_to ' マイページ', customers_my_page_path, class: "btn btn-primary" %></li>-->
       <li><%= link_to ' 商品一覧', items_path, class: "btn btn-success" %></li>
       <li><%= link_to ' カート', cart_items_path, class: "btn btn-info" %></li>
       <li><%= link_to ' ログアウト', destroy_customer_session_path, method: :delete, class: "btn btn-danger" %></li>
