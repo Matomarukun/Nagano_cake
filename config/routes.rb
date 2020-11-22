@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   #会員
   root to: 'public/homes#top'
   get '/about' => 'public/homes#about'
-  devise_for :customers
+  devise_for :customers , controllers: { registrations: 'customers/registrations' }
   scope module: :public do
       resources :customers, only:[:edit, :update] do
       collection do
