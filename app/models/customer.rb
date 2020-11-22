@@ -6,6 +6,7 @@ class Customer < ApplicationRecord
   has_many :addresses
 
 
+
   def name
     "#{@last_name} #{@first_name}"
   end
