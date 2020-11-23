@@ -4,15 +4,6 @@ class Customer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :addresses
-
-
-
-  def name
-    "#{@last_name} #{@first_name}"
-  end
-
-  def name_kana
-    "#{@last_name_kana} #{@first_name_kana}"
-  end
+  validates :boolean_is_deleted, inclusion: { in: [true, false] }
 
 end
