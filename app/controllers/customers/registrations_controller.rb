@@ -3,14 +3,21 @@
 class Customers::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
-  def my_page
-     @customer = current_customer
-  end
   # GET /resource/sign_up
   # def new
   #   super
   # end
 
+  #editでパスワードを入力しないで済むために必要
+  protected
+    def update_resource(resource, params)
+      resource.update_without_password(params)
+    end
+
+  #update後に好きな画面にリダイレクトするメソッド
+    def after_update_path_for(_resource)
+      my_page_customers_path
+    end
   # POST /resource
   # def create
   #   super
