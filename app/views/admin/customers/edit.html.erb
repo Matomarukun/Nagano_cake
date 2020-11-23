@@ -1,12 +1,12 @@
 <div class="container">
   <div class="row">
-    <h3><mark><% @customer.name %> さん　の会員情報編集</mark></h3>
+    <h3><mark><%= @customer.last_name %><%= @customer.first_name %> さん　の会員情報編集</mark></h3>
 
-    <table class="table table-hover table-inverse">
+    <table class="table table-borderless">
       <tbody>
       <%= form_with model: @customer, local:true do |f| %>
      <td>
-      <%= customer.id %>
+      <%= @customer.id %>
      </td>
 
 　　 <div class="field">
@@ -46,12 +46,17 @@
      </div>
 
      <div>
-     <%= f.select :is_active, [['有効',0],['無効',1]], { include_blank: true, selected: 0 } %>
-     </div>
+      <%= f.radio_button :is_deleted, :true %>
+      <%= f.label :is_deleted, "有効", {value: :true, style: "display: inline-block;"} %>
+      <%= f.radio_button :is_deleted, :false %>
+      <%= f.label :is_deleted, "無効", {value: :false, style: "display: inline-block;"} %>
+      <!--%= f.radio_button :is_active, :[['有効',0],['無効',1]], { include_blank: true, selected: 0 } %>-->
 
-     <div class="actions">
+      <div class="actions">
       <%= f.submit "変更を保存する" ,class: 'btn btn-success' %>
      </div>
       <% end %>
-  </table>
+
+     </div>
+   </table>
 </div>

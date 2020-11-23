@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <h3><mark><% @customer.name %> さん　の会員詳細</mark></h3>
+    <h3><mark><%= @customer.last_name %> <%= @customer.first_name %>さん　の会員詳細</mark></h3>
     <!--<div class="pull-right">-->
     <!--  %=link_to "", new_admin_item_path, class: "glyphicon glyphicon-plus-sign add_icon "%>-->
     <!--</div>-->
@@ -20,30 +20,30 @@
           <%= form_with model: @customer, local:true do |customer| %>
         <tr>
           <td>
-            <p><%= customer.id %><%= customer.is_deleted == true ? "有効会員" : "無効会員" %></p>
+            <p><%= @customer.id %><%= @customer.is_deleted == true ? "有効会員" : "無効会員" %></p>
           </td>
           <td>
-            <p><%= customer.name %></p>
+            <p><%= @customer.last_name %><%= @customer.first_name %></p>
           </td>
           <td>
-            <p><%= customer.name_kana %></p>
+            <p><%= @customer.last_name_kana %><%= @customer.first_name_kana %></p>
           </td>
           <td>
-            <p><%= customer.postal_code %></p>
+            <p><%= @customer.postal_code %></p>
           </td>
           <td>
-            <p><%= customer.addresses %></p>
+            <p><%= @customer.address %></p>
           </td>
           <td>
-            <p><%= customer.email %></p>
+            <p><%= @customer.email %></p>
           </td>
         </tr>
           <% end %>
       </tbody>
     </table>
 
-   　　 <!--<div%= link_to '編集する', edit_admin_customer_path(customer), class: "btn-sm btn-success" %></div>-->
-     　<!--<div>%= link_to '注文履歴一覧をみる', public_address_path(address),  class: "btn-sm btn-danger" %></div>-->
+   　　 <div><%= link_to '編集する', edit_admin_customer_path(@customer), class: "btn-sm btn-success" %></div>
+     　<div><%= link_to '注文履歴一覧をみる',  edit_admin_customer_path(@customer),  class: "btn-sm btn-danger" %></div>
       </tr>
   </div>
 </div>
