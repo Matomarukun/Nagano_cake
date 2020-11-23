@@ -6,6 +6,9 @@ class Customer < ApplicationRecord
   attr_accessor :current_password
   has_many :addresses
 
+  def active_for_authentication?
+    super && (self.is_deleted == false)
+  end
 
   def name
     "#{@last_name} #{@first_name}"

@@ -14,10 +14,11 @@ Rails.application.routes.draw do
   get '/about' => 'public/homes#about'
   devise_for :customers , controllers: { registrations: 'customers/registrations' }
   scope module: :public do
-      resources :customers, only:[:edit, :update] do
+      resources :customers, only:[:edit] do
       collection do
         get :my_page
         get :unsubscribe
+        put :withdraw
       end
     end
   end
