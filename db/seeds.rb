@@ -5,3 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Genre.create!(name: "ケーキ", is_active: true)
+Item.create!(genre_id: 1, name: "aaaa", introduction: "test", price: 300, is_active: true)
