@@ -1,2 +1,51 @@
-<h1>Admin::Items#edit</h1>
-<p>Find me in app/views/admin/items/edit.html.erb</p>
+<div class="container">
+  <div class="row">
+      <h3><mark>商品編集</mark></h3>
+
+    <%= form_with model: @item, url: admin_item_path(@item), local: true do |f| %>
+    <div class="col-md-5">
+      <div>
+          <%= attachment_image_tag @item, :image, :fill, 300, 180, format: 'jpeg' %>
+      </div>
+      <div>
+          <%= f.attachment_field :image %>
+      </div>
+    </div>
+    <div class="col-md-7">
+
+          <p>商品名
+            <%= f.text_field :name %>
+          </p>
+
+        <div>
+          <p>商品説明
+            <%= f.text_area :introduction, class: "input-mysize" %>
+          </p>
+        </div>
+        <div>
+          <p>
+            <!--ジャンル-->
+            <!--<= f.select :genre_id, [["ケーキ"], ["焼き菓子"], ["プリン"], ["キャンディ"]], include_blank: "--選択してください--" >-->
+          </p>
+        </div>
+        <div>
+          <p>税抜価格
+            <%= f.text_field :price %>円
+          </p>
+        </div>
+        <div>
+          <p>販売</br>ステータス
+            <%= f.select :is_active, [["販売中", true], ["売切れ", nil]], {include_blank: "--選択してください--", selected: true}, include_blank: "--選択してください--"  %>
+          </p>
+        </div>
+        <div>
+          <%= f.submit "変更を保存", class: "btn btn-info active" %>
+        </div>
+
+    </div>
+
+    <div>
+    </div>
+    <% end %>
+  </div>
+</div>
