@@ -2,7 +2,7 @@
   <div class="row">
     <h3><mark>商品一覧</mark></h3>
     <div class="pull-right">
-      <%=link_to "", new_admin_item_path, class: "glyphicon glyphicon-plus-sign add_icon "%>
+      <%=link_to "", new_admin_item_path, class: "glyphicon glyphicon-plus-sign add_icon"%>
     </div>
     <table class="table table-hover table-inverse">
       <thead>
@@ -16,25 +16,26 @@
       </thead>
       <tbody>
         <% @items.each do |item|%>
-        <tr>
-          <td>
-            <p><%= item.id %></p>
-          </td>
-          <td>
-            <%= link_to item.name, admin_item_path(item.id), class: "show_page" %>
-          </td>
-          <td>
-            <p><%= item.price %></p>
-          </td>
-          <td>
-            <!--<p><= item.genre_id %></p>-->
-          </td>
-          <td>
-            <p><%= item.is_active == true ? "販売" : "売り切れ" %></p>
-          </td>
-        </tr>
-          <% end %>
+          <tr>
+            <td>
+              <p><%= item.id %></p>
+            </td>
+            <td>
+              <%= link_to item.name, admin_item_path(item.id), class: "show_page" %>
+            </td>
+            <td>
+              <p><%= item.price %></p>
+            </td>
+            <td>
+              <!--<p><= item.genre_id %></p>-->
+            </td>
+            <td>
+              <p><%= item.is_active == true ? "販売" : "売り切れ" %></p>
+            </td>
+          </tr>
+        <% end %>
       </tbody>
     </table>
+    <%= paginate @items %>
   </div>
 </div>

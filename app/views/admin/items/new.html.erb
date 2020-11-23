@@ -1,10 +1,14 @@
 <div class="container">
   <div class="row">
     <h3><mark>商品新規登録</mark></h3>
+  <%= form_with model: @item, url: admin_items_path, local:true do |f| %>
     <div class="col-md-5">
-    <%= form_with model: @item, url: admin_items_path, local:true do |f| %>
-      <%= attachment_image_tag @item, :image, :fill, 300, 180, format: 'jpeg' %>
+      <div>
+        <%= attachment_image_tag @item, :image, :fill, 300, 180, format: 'jpeg' %>
+      </div>
+      <div>
         <%= f.attachment_field :image %>
+      </div>
     </div>
     <div class="col-md-7">
         <div>
@@ -39,12 +43,11 @@
         </div>
         <div>
           <%= f.submit "新規登録", class: "btn btn-info active" %>
-          <%= link_to "一覧", admin_items_path %>
         </div>
-      <% end %>
     </div>
 
     <div>
     </div>
+  <% end %>
   </div>
 </div>

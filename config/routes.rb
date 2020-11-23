@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-#管理者
+
+   #管理者
   get '/admin', to: 'admin/homes#top'
   devise_for :admin
   namespace :admin do
@@ -10,10 +11,12 @@ Rails.application.routes.draw do
     resources :items, except:[:destroy]
     resources :genres, only:[:index, :edit, :create, :update]
   end
+
   #会員
   root to: 'public/homes#top'
   get '/about' => 'public/homes#about'
 
+  devise_for :customers , controllers: { registrations: 'customers/registrations' }
 
   devise_for :customers
   scope module: :public do
@@ -34,4 +37,6 @@ Rails.application.routes.draw do
 
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
 end
+
