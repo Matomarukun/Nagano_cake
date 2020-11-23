@@ -1,6 +1,5 @@
 class Public::CustomersController < ApplicationController
   def my_page
-
   end
 
   def unsubscribe
@@ -15,4 +14,5 @@ class Public::CustomersController < ApplicationController
         reset_session
         redirect_to root_path
    end
+
 end
