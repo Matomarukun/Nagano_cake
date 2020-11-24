@@ -14,16 +14,15 @@
  *= require_self
  */
 @import "bootstrap-sprockets";
-
 @import "bootstrap";
 
-.logo {
-  color: red;
+mark {
+  background-color: #EEE;
 }
 
-mark {
-  background-color: #EEE;
+.img_prev:hover {
+  cursor: pointer; 
+  opacity: 0.7;
+  transform: scale(1.01, 1.01);
 }
-mark {
-  background-color: #EEE;
-}
+
