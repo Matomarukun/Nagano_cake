@@ -27,8 +27,7 @@
               <p><%= item.price %></p>
             </td>
             <td>
-              <!--ジャンルでき次第-->
-              <!--<p><= item.genre_id %></p>-->
+              <p><%= item.genre.name %></p>
             </td>
             <td>
               <p><%= item.is_active == true ? "販売" : "売り切れ" %></p>
