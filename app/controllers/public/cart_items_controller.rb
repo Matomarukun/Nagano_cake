@@ -1,6 +1,6 @@
 class Public::CartItemsController < ApplicationController
   def index
-    @cart_item = CartItem.find(params[:id])
+    @cart_items = CartItem.all
   end
 
   def update
@@ -14,4 +14,5 @@ class Public::CartItemsController < ApplicationController
 
   def create
   end
+
 end

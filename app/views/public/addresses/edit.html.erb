@@ -3,8 +3,8 @@
   <h1>配送先編集</h1>
 
 
+ <%= form_with model: @address, url: address_path(@address), local:true do |f| %>
 <table class="table table-hover table-inverse">
- <%= form_with model: @address, url: edit_address_path(@address), local:true do |f| %>
  <div class="field">
       <%= f.label :postal_code, '郵便番号' %>
       <%= f.text_field :postal_code, autofocus: true %>

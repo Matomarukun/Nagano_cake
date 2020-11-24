@@ -1,7 +1,7 @@
 <div class="container">
  <div class='row'>
   <h1>配送先登録・一覧</h1>
-    <%= form_with model: @address, local:true, url:public_addresses_path do |f| %>
+    <%= form_with model: @address, url:addresses_path, local:true do |f| %>
     <!--%= form_with model:book,local:true do |f| %>-->
 
     <div class="field">
@@ -38,8 +38,8 @@
         <th><%= address.postal_code %></th>
         <th><%= address.address %></th>
         <th><%= address.name %></th>
-        <td><%= link_to '編集する', edit_public_address_path(address), class: "btn-sm btn-success" %></td>
-        <td><%= link_to '削除する', public_address_path(address), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn-sm btn-danger" %></td>
+        <td><%= link_to '編集する', edit_address_path(address), class: "btn-sm btn-success" %></td>
+        <td><%= link_to '削除する', address_path(address), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn-sm btn-danger" %></td>
       </tr>
       <% end %>
     </table>

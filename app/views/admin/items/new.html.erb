@@ -7,7 +7,10 @@
   <%= form_with model: @item, url: admin_items_path, local:true do |f| %>
     <div class="col-md-5">
       <div>
-        <%= attachment_image_tag @item, :image, :fill, 300, 180, format: 'jpeg' %>
+        <div>
+        <%= f.file_field :image, class: 'img_field', style: 'display:none;' %>
+        </div>
+        <%= attachment_image_tag @item, :image, :fill, 450, 450, format: 'jpg', onClick: "$('.img_field').click()", class: 'center-block img-thumbnail img-responsive img_prev' %>
       </div>
       <div>
         <%= f.attachment_field :image %>
@@ -27,10 +30,9 @@
           </p>
         </div>
         <div>
-          <p>
-            <%= f.label :genre_id, "ジャンル" %>
+          <p><%= f.label :genre_id, "ジャンル" %></p>
             <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "--選択してください--"  %>
-          </p>
+
         </div>
         <div>
           <p>
