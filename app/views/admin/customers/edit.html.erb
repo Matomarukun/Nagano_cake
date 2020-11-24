@@ -4,10 +4,11 @@
 
     <table class="table table-borderless">
       <tbody>
-      <%= form_with model: @customer, local:true do |f| %>
-     <td>
-      <%= @customer.id %>
-     </td>
+      <%= form_with model: @customer, url:admin_customer_path(@customer), local:true do |f| %>
+      <div>
+       <%= f.label :id, "会員ID"%>
+       <%= @customer.id %>
+      </div>
 
 　　 <div class="field">
       <%= f.label :name, '氏名' %>
@@ -32,11 +33,6 @@
 
      <div class="field">
       <%= f.label :phone_number, '電話番号' %>
-      <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number" %>
-     </div>
-
-     <div class="field">
-      <%= f.label :name, '電話番号' %>
       <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number" %>
      </div>
 
