@@ -20,7 +20,7 @@
           <%= form_with model: @customer, local:true do |customer| %>
         <tr>
           <td>
-            <p><%= @customer.id %><%= @customer.is_deleted == true ? "有効会員" : "無効会員" %></p>
+            <p><%= @customer.id %> <%= @customer.is_deleted == true ? "有効会員" : "無効会員" %></p>
           </td>
           <td>
             <p><%= @customer.last_name %><%= @customer.first_name %></p>
@@ -33,6 +33,9 @@
           </td>
           <td>
             <p><%= @customer.address %></p>
+          </td>
+          <td>
+            <p><%= @customer.phone_number %></p>
           </td>
           <td>
             <p><%= @customer.email %></p>
