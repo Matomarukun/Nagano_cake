@@ -1,18 +1,15 @@
 class Admin::CustomersController < ApplicationController
 
   def index
-    @customer = Customer.new
-    @customers = Customer.all
+    @customers = Customer.all.page(params[:page]).per(5)
   end
 
   def show
     @customer = Customer.find(params[:id])
-    @customers = Customer.all
   end
 
   def edit
     @customer = Customer.find(params[:id])
-    @customers = Customer.all
   end
 
   def update
