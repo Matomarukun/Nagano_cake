@@ -1,116 +1,105 @@
-<div class="container">
-        <p class="gr-index"><%=  notice %></p>
-        <div class="row">
-          <div class="top-message col-md-offset-2 col-md-9">
-            <div class="btn-wrapper">
-              
-              新規会員登録
-             <%= form_with model: @customer, url: customer_registration_path, id: 'new_customer', class: 'new_customer', local: true do |f| %>
-              <%= render "devise/shared/error_messages", resource: resource %>
+<p class="gr-index"><%=  notice %></p>
+<div class="top-message col-md-offset-2 col-md-9">
+  <div class="btn-wrapper">
+    <h3><mark>新規会員登録</mark></h3>
+   <%= form_with model: @customer, url: customer_registration_path, id: 'new_customer', class: 'new_customer', local: true do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
-              <table class="table table-hover table-inverse">
+<table class="table table-hover table-inverse">
+    <tbody>
+      <th>名前(姓)</th>
+      <th>
+      <div class="field">
+        <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
+      </div>
+      <th>
+        <div class="field">
+        (名)
+        <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
+      </div>
+      </th>
+    </tbody>
 
-              <thead>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-              </thead>
+    <tbody>
+      <th>フリガナ(セイ)</th>
+      <th>
+      <div class="field">
+        <%= f.text_field :last_name_kana, autofocus: true, autocomplete: "last_name_kana" %>
+      </div>
+      <th>
+        <div class="field">
+        (メイ)
+        <%= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana" %>
+      </div>
+      </th>
+    </tbody>
 
-              <tbody>
-                <th>名前(姓)</th>
-                <th>
-                <div class="field">
-                  <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
-                </div>
-                <th>
-                  <div class="field">
-                  (名)
-                  <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
-                </div>
-                </th>
-              </tbody>
+    <tbody>
+      <th>メールアドレス</th>
+      <th>
+      <div class="field">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+      </th>
+    </tbody>
 
-              <tbody>
-                <th>フリガナ(セイ)</th>
-                <th>
-                <div class="field">
-                  <%= f.text_field :last_name_kana, autofocus: true, autocomplete: "last_name_kana" %>
-                </div>
-                <th>
-                  <div class="field">
-                  (ナ)
-                  <%= f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana" %>
-                </div>
-                </th>
-              </tbody>
+      <tbody>
+      <th>郵便番号（ハイフンなし）</th>
+      <th>
+      <div class="field">
+      <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code" %>
+      </div>
+    </tbody>
 
-              <tbody>
-                <th>メールアドレス</th>
-                <th>
-                <div class="field">
-                  <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-                </div>
-                </th>
-              </tbody>
+    <tbody>
+      <th>住所</th>
+      <th>
+      <div class="field">
+      <%= f.text_field :address, autofocus: true, autocomplete: "address" %>
+      </div>
+    </tbody>
 
-                <tbody>
-                <th>郵便番号（ハイフンなし）</th>
-                <th>
-                <div class="field">
-                <%= f.text_field :postal_code, autofocus: true, autocomplete: "postal_code" %>
-                </div>
-              </tbody>
+     <tbody>
+      <th>電話番号（ハイフンなし）</th>
+      <th>
+      <div class="field">
+      <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number" %>
+      </div>
+    </tbody>
 
-              <tbody>
-                <th>住所</th>
-                <th>
-                <div class="field">
-                <%= f.text_field :address, autofocus: true, autocomplete: "address" %>
-                </div>
-              </tbody>
+    <tbody>
+      <th>パスワード
+      <% if @minimum_password_length %>
+        <em>（<%= @minimum_password_length %> 文字以上）</em>
+      <% end %>
+      </th>
+      <th>
+        <div class="field">
+          <%= f.password_field :password, autocomplete: "new-password" %>
+        </div>
+      </th>
+      </tbody>
 
-               <tbody>
-                <th>電話番号（ハイフンなし）</th>
-                <th>
-                <div class="field">
-                <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number" %>
-                </div>
-              </tbody>
+    <tbody>
+      <th>パスワード（確認用）</th>
+      <th>
+        <div class="field">
+          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+        </div>
+      </th>
+    </tbody>
 
-              <tbody>
-                <th>パスワード
-                <% if @minimum_password_length %>
-                  <em>（<%= @minimum_password_length %> 文字以上）</em>
-                <% end %>
-                </th>
-                <th>
-                  <div class="field">
-                    <%= f.password_field :password, autocomplete: "new-password" %>
-                  </div>
-                </th>
-                </tbody>
-
-              <tbody>
-                <th>パスワード（確認用）</th>
-                <th>
-                  <div class="field">
-                    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-                  </div>
-                </th>
-              </tbody>
-
-              </table>
-
-              <div class="actions">
-                <input type="submit" name="commit" value="新規登録" class="btn btn-success" data-disable-with="Sign up">
-              </div>
-              <% end %>
-              <br>
-              既に登録済みの方
-              <br>
-              <%= link_to "こちら", new_session_path(resource_name) %>からログインください。
-
-</div>
-</div>
+</table>
+    <div class="center-block">
+      <div class="actions">
+        <input type="submit" name="commit" value="新規登録" class="btn btn-success" data-disable-with="Sign up">
+      </div>
+    </div>
+  <% end %>
+    <div>
+      <br>
+      <h3><mark>既に登録済みの方</mark></h3>
+    </div>
+    <%= link_to "こちら", new_session_path(resource_name) %>からログインください。
 </div>
 </div>

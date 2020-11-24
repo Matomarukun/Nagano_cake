@@ -1,4 +1,4 @@
 class Order < ApplicationRecord
-  has_many :cart_items
+  has_many :oder_items
   belongs_to :customer
 end
