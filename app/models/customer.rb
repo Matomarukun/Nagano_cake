@@ -6,6 +6,7 @@ class Customer < ApplicationRecord
 
   attr_accessor :current_password
   has_many :addresses
-  validates :boolean_is_deleted, inclusion: { in: [true, false] }
+  has_many :orders
+  #validates :boolean_is_deleted, inclusion: { in: [true, false] }
 
 end

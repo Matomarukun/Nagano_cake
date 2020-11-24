@@ -11,7 +11,7 @@ class Public::AddressesController < ApplicationController
     @address.customer_id = current_customer.id
 
     if @address.save
-      redirect_to public_addresses_path
+      redirect_to addresses_path
     else
       @addresses = Address.all
       render 'index'
@@ -25,7 +25,7 @@ class Public::AddressesController < ApplicationController
 
   def update
     if @address.update(address_params)
-      redirect_to public_addresses_path(@address), notice: "You have updated address successfully."
+      redirect_to addresses_path(@address), notice: "You have updated address successfully."
     else
       render "edit"
     end
@@ -34,7 +34,7 @@ class Public::AddressesController < ApplicationController
   def destroy
     @address = Address.find(params[:id])
     @address.destroy
-    redirect_to public_addresses_path
+    redirect_to addresses_path
   end
 
 
