@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
    #管理者
   get '/admin', to: 'admin/homes#top'
-  devise_for :admin
+  devise_for :admins
   namespace :admin do
     resources :customers, only:[:index, :show, :edit, :update]
     resources :orders, only:[:index, :show, :update]
@@ -29,7 +29,7 @@ Rails.application.routes.draw do
     end
     resources :orders, only:[:index, :create, :show, :new] do
       collection do
-       post :confirm
+       get :confirm
        get  :complete
       end
     end

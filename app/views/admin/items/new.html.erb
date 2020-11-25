@@ -30,8 +30,11 @@
           </p>
         </div>
         <div>
-          <p><%= f.label :genre_id, "ジャンル" %></p>
-            <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "--選択してください--"  %>
+
+          <p>
+            <%= f.label :genre_id, "ジャンル" %>
+            <%= f.collection_select :genre_id, Genre.all, :id, :name, {include_blank: '--選択してください--'}  %>
+          </p>
 
         </div>
         <div>

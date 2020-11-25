@@ -2,7 +2,9 @@
 <h2>商品一覧</h2>
 <% @items.each do |item| %>
   <%= attachment_image_tag item, :image, fallback:"no_image.jpg", size: '200x100' %>
-  <li><%= item.name %></li>
-  <li><%= item.price %></li>
+
+  <div><%= link_to item.name, item_path(item.id) %></div>
+  <div><%= item.price %></div>
+
 <% end %>
 </div>

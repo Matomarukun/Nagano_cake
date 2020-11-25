@@ -1,9 +1,11 @@
+
 <p class="gr-index"><%=  notice %></p>
 <div class="top-message col-md-offset-2 col-md-9">
   <div class="btn-wrapper">
     <h3><mark>新規会員登録</mark></h3>
    <%= form_with model: @customer, url: customer_registration_path, id: 'new_customer', class: 'new_customer', local: true do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
+
 
 <table class="table table-hover table-inverse">
     <tbody>
@@ -67,6 +69,7 @@
       </div>
     </tbody>
 
+
     <tbody>
       <th>パスワード
       <% if @minimum_password_length %>
@@ -88,6 +91,7 @@
         </div>
       </th>
     </tbody>
+
 
 </table>
     <div class="center-block">
