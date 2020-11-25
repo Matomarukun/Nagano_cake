@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
    #管理者
   get '/admin', to: 'admin/homes#top'
-  devise_for :admin
+  devise_for :admins
   namespace :admin do
     resources :customers, only:[:index, :show, :edit, :update]
     resources :orders, only:[:index, :show, :update]
@@ -24,16 +24,23 @@ Rails.application.routes.draw do
       collection do
         get :my_page
         get :unsubscribe
+        put :withdraw
+      end
+    end
+    resources :orders, only:[:index, :create, :show, :new] do
+      collection do
+       post :confirm
+       get  :complete
       end
     end
 
-    resources :cart_items, only:[:index, :update, :destroy, :create]
-    delete '/cart_items/destroy_all' => 'cart_items#destroy_all'
+    resources :cart_items, only:[:index, :update, :destroy, :create] do
+      collection do
+        delete :destroy_all
+      end
+    end
     resources :addresses, only:[:index, :create, :edit, :update, :destroy]
     resources :items, only:[:index, :show]
-    resources :orders, only:[:index, :create, :show, :new]
-    post '/orders/confirm' => 'orders#confirm'
-    get '/orders/complete' => 'orders#complete'
 
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

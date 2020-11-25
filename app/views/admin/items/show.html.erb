@@ -15,15 +15,15 @@
       </div>
       <div>
         <p>ジャンル</p>
-        <p><%= @item.genre_id %></p>
+        <p><%= @item.genre.name %></p>
       </div>
       <div>
-        <p>税込価格（税抜価格</p>
+        <p>税込価格（税抜価格)</p>
         <p><strong><%= @item.price %></strong>円</p>
       </div>
       <div>
         <p>販売ステータス</p>
-        <p><%= @item.is_active == true ? "販売" : "売り切れ" %></p>
+        <p><%= @item.is_active == true ? "販売中" : "売切れ" %></p>
       </div>
       <div>
         <%= link_to "編集する", edit_admin_item_path, class: "btn btn-info active" %>

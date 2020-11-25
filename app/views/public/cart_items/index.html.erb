@@ -18,10 +18,12 @@
 <%= link_to "カートを空にする", cart_items_destroy_all_path(@cart_items), method: :delete, class:"btn btn-danger" %>
 
 <tbody>
+
   <div class="table-responsive">
     <table class="table">
   <% sum = 0 %>
   <% @cart_items.each do |cart_item| %>
+
     <tr>
       <td><%= attachment_image_tag cart_item.item, :image, fallback:"no_image.jpg", size: '40x40' %></td>
       <td><%= cart_item.item.name %></td>
