@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
   devise_for :customers , controllers: { registrations: 'customers/registrations' }
 
-  devise_for :customers
+  # devise_for :customers
   scope module: :public do
     resources :customers, only:[:edit, :update] do
       collection do
