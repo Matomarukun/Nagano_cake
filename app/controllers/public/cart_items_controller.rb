@@ -12,10 +12,12 @@ class Public::CartItemsController < ApplicationController
   def destroy
     cart_item = CartItem.find(params[:id])
     cart_item.destroy
-    redirect_to cart_item_path(cart_item)
+    redirect_to cart_items_path
   end
 
   def destroy_all
+    CartItem.destroy_all
+    redirect_to cart_items_path
   end
 
   def create
