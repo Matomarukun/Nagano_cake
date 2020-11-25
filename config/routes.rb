@@ -28,8 +28,8 @@ Rails.application.routes.draw do
     end
     resources :orders, only:[:index, :create, :show, :new] do
       collection do
-       get :confirm
-       get  :complete
+       post :confirm
+       get :complete
       end
     end
 
