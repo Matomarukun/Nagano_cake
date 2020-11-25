@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="row">
+    <h3><mark>注文情報確認</mark></h3>
+    <div class="top-message col-md-8 ">
+      <% sub_total = 0 %>
+      <% order_sum = 0 %>
+      <% sum = 0 %>
+      <% shipping = 800 %>
+    <% @cart_items.each do |cart_item| %>
+      <tr>
+        <td><%= attachment_image_tag cart_item.item, :image, fallback:"no_image.jpg", size: '40x40' %></td>
+        <td><%= cart_item.item.name %></td>
+        <td><%= cart_item.item.price %></td>
+        <td><%= cart_item.amount %></td>
+        <% sub_total = cart_item.item.price * cart_item.amount %>
+        <td><%= sub_total %></td>
+        <% order_sum += sub_total %>
+        </br>
+      </tr>
+    <% end %>
+    </div>
+    <div class="top-message col-md-4">
+    <table class="table table-bordered">
+      <h4>請求情報</h4>
+      <tbody>
+        <th class="active">送料</th>
+        <th>
+          <div>
+            <%= shipping %>
+          </div>
+        </th>
+      </tbody>
+
+       <tbody>
+        <th class="active">商品合計</th>
+        <th>
+          <div>
+            <%= order_sum %>
+          </div>
+        </th>
+      </tbody>
+      <% sum= order_sum+shipping %>
+       <tbody>
+        <th class="active">ご請求額</th>
+        <th>
+          <div>
+            <%= sum %>
+          </div>
+        </th>
+      </tbody>
+
+      <tbody class="visibility">
+        <th>ああ</th>
+        <th>ああ</th>
+      </tbody>
+
+      <tbody class="visibility">
+        <th>いいい</th>
+        <th>いいい</th>
+      </tbody>
+
+    </table>
+    </div>
+    <div class="top-message col-md-8">
+      支払方法 
+    </div>
+  </div>
+</div>
