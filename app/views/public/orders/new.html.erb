@@ -1,0 +1,24 @@
+注文情報入力
+
+<%= select :status,:name,Order.method_pays.keys.to_a %>
+</br>
+<h3>登録済み住宅から選択</h3><%= @order.customer.postal_code %>　<%= @order.customer.address %>
+</br>
+
+<div class="table-responsive">
+   <table class="table">
+      <tr>
+        <th>郵便番号</th>
+        <th>住所</th>
+        <th>宛名</th>
+        <th colspan="2">    </th>
+      </tr>
+      <tr>
+      <% @addresses.each do |address| %>
+        <th><%= address.postal_code %></th>
+        <th><%= address.address %></th>
+        <th><%= address.name %></th>
+      </tr>
+      <% end %>
+
+<%= link_to "確認画面へ進む", confirm_orders_path, class: "btn btn-primary" %>
