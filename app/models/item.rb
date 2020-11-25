@@ -7,6 +7,6 @@ class Item < ApplicationRecord
  has_many :oder_items
 #   validates :item, inclusion: { in: [true, false] }
 validates :name, :price,  presence: true
-validates :is_active, inclusion: { in: %w(draft publish private) }
+# validates :is_active, inclusion: { in: %w(draft publish private) }
 
 end
