@@ -11,9 +11,21 @@
           <th class="active">注文詳細</th>
       </thead>
 
+      <% @orders.each do |order| %>
       <tbody>
-
+        <th><%= order.created_at.strftime('%Y/%m/%d') %></th>
+        <th><%= order.postal_code %></br>
+            <%= order.address %></br>
+            <%= order.name %></br>
+        </th>
+      <% end %>
+      <% @orders.each do |order| %>
+        <th></th>
+        <th></th>
+        <th></th><!-- <%= order.status %> -->
+        <th><%= link_to "注文詳細", order_path(order) %></th>
       </tbody>
+      
     </table>
   </div>
 </div>
