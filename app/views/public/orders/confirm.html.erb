@@ -1,6 +1,7 @@
 <div class="container">
   <div class="row">
     <h3><mark>注文情報確認</mark></h3>
+    <% order_sum = 0 %>
     <div class="top-message col-md-8 ">
       <%= form_for  @order,url: {action: 'create'} do |f| %>
        <table class="table table-bordered">
@@ -14,7 +15,7 @@
 
 				<tbody>
 				  <% @cart_items.each do |cart_item| %>
-				  <% @total+= (cart_item.item.price*1.1*cart_item.amount).floor %>
+				  <% order_sum+= (cart_item.item.price*1.1*cart_item.amount).floor %>
 
 					<tr>
 						  <td><%= cart_item.item.name %>
@@ -38,12 +39,12 @@
 				<tbody>
 					<tr>
 						<th>商品合計</th>
-						<td><%= @total%></td>
+						<td><%= order_sum%></td>
 					</tr>
 
 					<tr>
      				<th>請求額</th>
-						<td><%= @total+800%></td>
+						<td><%= order_sum+800%></td>
 					</tr>
 				</tbody>
 
@@ -60,7 +61,7 @@
 		<%= f.hidden_field :address,:value => @order.address %>
 		<%= f.hidden_field :postal_code,:value => @order.postal_code %>
 		<%= f.hidden_field :name,:value => @order.name %>
-		<%= f.hidden_field :total_fee ,:value => @total %><br><br>
+		<%= f.hidden_field :order_sum ,:value => @order.order_sum %><br><br>
 
 		<div class="text-center">
 			<%= f.submit "購入を確定する", class: "btn btn-success text-cenrer btn-lg" %>
