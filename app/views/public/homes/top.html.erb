@@ -1,33 +1,53 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-3  genres">
-      <div class=""><h3>ジャンル検索</h3></div>
-      <div>
-        <li>ケーキ</li>
-        <li>焼き菓子</li>
-        <li>プリン</li>
-        <li>キャンディ</li>
-      </div>
-    </div>
+<div class="col-md-3  genre_search">
 
-    <div class="col-md-9 top">
-      <div class="font">
-        <div class="pr">
-          <p>
-            ようこそ、NaganoCakeへ！<br>
-            このサイトは、ケーキ販売のECサイトになります。<br>
-            会員でない方も商品の閲覧はできますが、<br>
-            購入には会員登録が必要になります。<br>
-          </p>
-        </div>
-      </div>
-      <div class="">
-        <h2>オススメ商品</h2>
-      </div>
-      <div>
+  <table class="table">
+    <thead class="table-bordered">
+      <th><h4><strong>ジャンル検索</strong></h4></th>
+    </thead>
+    <tbody>
+      <% @genres.each do |genre| %>
+      <tr>
+        <td>
+          <%= link_to do %>
+           <p><%= genre.name %></p>
+          <% end %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+</div>
+
+<div class="col-md-9">
+<div class="top-box">
+ <div class="hello-pr">
+  <div class="">
+    <p>
+      ようこそ、NaganoCakeへ！<br>
+      このサイトは、ケーキ販売のECサイトになります。<br>
+      会員でない方も商品の閲覧はできますが、<br>
+      購入には会員登録が必要になります。<br>
+    </p>
+  </div>
+ </div>
+</div>
+<div>
+  <h2><strong>オススメ商品</strong></h2>
+</div>
+
+
+
+  <div class="row" >
+    <% @items.last(3).each do |item| %>
+      <div class="col-md-4">
         <div>
-            <li>商品名</li>
+            <%= attachment_image_tag item, :image, fallback:"no_image.jpg", size: '150x100' %>
+            <div>
+              <h4>商品名 <%= link_to item.name %></h4></div>
+            <div><h4>¥ <%= item.price %></h4></div>
         </div>
-    </div>
+      </div>
+    <% end %>
   </div>
 </div>

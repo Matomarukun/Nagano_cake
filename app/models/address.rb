@@ -13,7 +13,12 @@ class Address < ApplicationRecord
   #   self.prefecture_code = JpPrefecture::Prefecture.find(name: prefecture_name).code
   # end
 
+  with_options presence: true  do
+    validates :address, :name
 
-
+    with_options numericality: { allow_nil: true } do
+      validates :postal_code
+    end
+  end
 
 end

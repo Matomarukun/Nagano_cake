@@ -6,32 +6,33 @@
   font-size: 20px;
 }
 
-// top
-.genres {
+
+.genre_search {
   background-color: yellow;
   padding-right: 40px;
-  list_style: none;
+  
 }
 
-.top {
+.top-box {
   background-color: red;
+  width: 750px;
+  height: 450px;
 }
-.pr {
+
+.hello-pr {
   margin-top: 20px;
   background-color: green;
-  margin: 0 180px;
-  // margin-right: 50%;
-}
-.font {
-   background-color: blue;
-   margin: 0 50px;
+  width: 550px;
+  height: 200px;
+  // margin: 0 180px;
+  margin: 0 70px;
 }
 
-// about
 .about {
   font-size: 70px;
   padding-bottom: 30px;
 }
+
 .image_box {
   width: 460px;
   height: 180px;

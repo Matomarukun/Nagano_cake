@@ -1,0 +1,37 @@
+<div class="col-md-3  genres">
+
+  <table class="table">
+    <thead class="table-bordered">
+      <th><h4><strong>ジャンル検索</strong></h4></th>
+    </thead>
+    <tbody>
+      <% @genres.each do |genre| %>
+      <tr>
+        <td>
+          <%= link_to do %>
+           <p><%= genre.name %></p>
+          <% end %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+</div>
+
+<div class="col-md-9">
+  <!--<div class="genre_list">-->
+  <!--    <div class="row" >-->
+  <!--  <% @items.each do |item| %>-->
+  <!--    <div class="col-md-4">-->
+  <!--      <div>-->
+  <!--          <%= attachment_image_tag item, :image, fallback:"no_image.jpg", size: '150x100' %>-->
+  <!--          <div>-->
+  <!--            <h4>商品名 <%= link_to item.name %></h4></div>-->
+  <!--          <div><h4>¥ <%= item.price %></h4></div>-->
+  <!--      </div>-->
+  <!--    </div>-->
+  <!--  <% end %>-->
+  <!--</div>-->
+  <!--</div>-->
+</div>
