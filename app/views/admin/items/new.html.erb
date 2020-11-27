@@ -19,33 +19,33 @@
     <div class="col-md-7">
         <div>
           <p>
-            <%= f.label :name, "商品名" %>
-            <%= f.text_field :name%>
+            <%= f.label "商品名" %>
+            <%= f.text_field :name %>
           </p>
         </div>
         <div>
           <p>
-            <%= f.label :introduction, "商品説明" %>
+            <%= f.label "商品説明" %>
             <%= f.text_area :introduction%>
           </p>
         </div>
         <div>
 
           <p>
-            <%= f.label :genre_id, "ジャンル" %>
+            <%= f.label "ジャンル" %>
             <%= f.collection_select :genre_id, Genre.all, :id, :name, {include_blank: '--選択してください--'}  %>
           </p>
 
         </div>
         <div>
           <p>
-            <%= f.label :price, "税抜価格" %>
+            <%= f.label "税抜価格" %>
             <%= f.text_field :price%>円
           </p>
         </div>
         <div>
           <p>
-            <%= f.label :is_active, "販売ステータス" %>
+            <%= f.label "販売ステータス" %>
             <%= f.select :is_active, [["販売中", true], ["売切れ", nil]], include_blank: "--選択してください--" %>
           </p>
         </div>

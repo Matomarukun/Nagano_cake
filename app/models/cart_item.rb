@@ -6,4 +6,6 @@ class CartItem < ApplicationRecord
 
   validates :amount, numericality: true
 
+  # validates :amount,
+  #   numericality:{ only_integer: true, greater_than: 1}
 end

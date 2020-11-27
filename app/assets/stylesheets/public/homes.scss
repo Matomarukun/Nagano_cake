@@ -1,39 +1,71 @@
 // Place all the styles related to the public::homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
-.text {
-  font-size: 20px;
+.example {
+  position: relative;
+}
+.example p {
+  position: absolute;
+  color: #FF00FF;
+  font-size: 22px;
+  top: 50%;
+  left: 43%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+}
+.example p strong {
+  color: #fff;
+}
+.example img {
+  width: 100%;
+  width: 750px;
 }
 
-// top
-.genres {
-  background-color: yellow;
-  padding-right: 40px;
-  list_style: none;
+.genre-search {
+  border-style: solid;
+  border-width: thin;
+  list-style-type: none;
+  height: 400px;
+  width: 200px;
+  border: 1px solid;
 }
 
-.top {
-  background-color: red;
-}
-.pr {
-  margin-top: 20px;
-  background-color: green;
-  margin: 0 180px;
-  // margin-right: 50%;
-}
-.font {
-   background-color: blue;
-   margin: 0 50px;
+.genre-search th {
+  border: 2px solid;
 }
 
-// about
+.genre-name a {
+  padding-bottom: 15px;
+
+}
+
+.genre-search a {
+  color: #808080;
+  padding: 5px;
+  font-size: 18px;
+}
+
+.genre-search a:hover {
+ text-decoration: none;
+}
+
+.item-name a {
+  color: #000;
+}
+
+// about-page
 .about {
   font-size: 70px;
   padding-bottom: 30px;
 }
+.text {
+  font-size: 20px;
+}
+
 .image_box {
-  width: 460px;
-  height: 180px;
-  background-color: red;
+  width: 700px;
+  height: 350px;
 }

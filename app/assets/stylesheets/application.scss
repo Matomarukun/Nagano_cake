@@ -21,8 +21,14 @@ mark {
 }
 
 .img_prev:hover {
-  cursor: pointer; 
+  cursor: pointer;
   opacity: 0.7;
   transform: scale(1.01, 1.01);
+}
+
+.field_with_errors {
+  padding: 2px;
+  background-color: #F39800;
+  display: table;
 }
 
