@@ -32,7 +32,7 @@
         <div>
             <%= attachment_image_tag item, :image, fallback:"no_image.jpg", size: '150x100' %>
             <div class="item-name">
-              <h4><%= link_to item.name %></h4></div>
+              <h4><%= item.name %></h4></div>
             <div><h4>¥ <%= item.price %></h4></div>
         </div>
       </div>
