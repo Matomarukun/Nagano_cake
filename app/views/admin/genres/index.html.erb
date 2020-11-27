@@ -34,8 +34,8 @@
       <td>
        <p><%= genre.is_active == true ? "有効" : "無効" %></p>
       </td>
-      <td>
-       　  <%= link_to '編集する',edit_admin_genre_path(genre), class: "btn-sm btn-succes" %>
+      <td class=>
+       　  <%= link_to '編集する' ,edit_admin_genre_path(genre), class: "btn btn-primary" %>
       </td>
      </tr>
    <% end %>
