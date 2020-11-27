@@ -8,7 +8,7 @@
         <th class="active my_active">注文日</th>
         <th>
           <div>
-            2019/11/24
+         <%= @order.created_at.strftime('%Y/%m/%d') %>
           </div>
         </th>
       </tbody>
@@ -17,7 +17,9 @@
         <th class="active">配送先</th>
         <th>
           <div>
-            2019/11/24
+            <%= @order.postal_code %></br>
+            <%= @order.address %></br>
+            <%= @order.name %></br>
           </div>
         </th>
       </tbody>
@@ -26,7 +28,7 @@
         <th class="active">支払方法</th>
         <th>
           <div>
-            2019/11/24
+            <%= @order.method_pay %>
           </div>
         </th>
       </tbody>
@@ -35,7 +37,7 @@
         <th class="active">ステータス</th>
         <th>
           <div>
-            2019/11/24
+
           </div>
         </th>
       </tbody>
@@ -49,7 +51,7 @@
         <th class="active">商品合計</th>
         <th>
           <div>
-            2019/11/24
+
           </div>
         </th>
       </tbody>
@@ -58,7 +60,7 @@
         <th class="active">配送料</th>
         <th>
           <div>
-            2019/11/24
+            800
           </div>
         </th>
       </tbody>
@@ -67,7 +69,7 @@
         <th class="active">ご請求額</th>
         <th>
           <div>
-            2019/11/24
+            <%= @order.order_sum %>
           </div>
         </th>
       </tbody>
@@ -94,14 +96,6 @@
             <th class="active show_kazu" >個数</th>
             <th class="active ">小計</th>
           </thead>
-
-          <tbody>
-            <th>イチゴのショートケーキ</th>
-            <th>500</th>
-            <th>2</th>
-            <th>1000</th>
-          </tbody>
-      </table>
 
     </div>
   </div>

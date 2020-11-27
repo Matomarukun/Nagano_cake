@@ -21,10 +21,6 @@ table {
   width: 10%;
 }
 
-.status {
-  width: 10%;
-}
-
 .show_ordre {
   width: 60%;
 }
@@ -38,4 +34,9 @@ table {
 }
 .visibility {
   visibility:hidden;
+}
+.wrapper {
+  display: flex;
+	align-items: center;
+	justify-content: center;
 }

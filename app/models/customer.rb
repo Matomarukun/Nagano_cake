@@ -7,10 +7,10 @@ class Customer < ApplicationRecord
   attr_accessor :current_password
   has_many :addresses
   has_many :cart_items
-
   has_many :order
 
   validates :is_deleted, inclusion: { in: [true, false] }
+
 
   with_options presence: true do
     validates :last_name, :first_name, :last_name_kana, :first_name_kana, :address, :email
@@ -23,6 +23,5 @@ class Customer < ApplicationRecord
       validates :password
     end
   end
-
 
 end

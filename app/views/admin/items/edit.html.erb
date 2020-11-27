@@ -15,22 +15,26 @@
     </div>
     <div class="col-md-7">
 
-          <p>商品名
+          <p>
+            <%= f.label "商品名" %>
             <%= f.text_field :name %>
           </p>
 
         <div>
-          <p>商品説明
+          <p>
+            <%= f.label "商品説明" %>
             <%= f.text_area :introduction, class: "input-mysize" %>
           </p>
         </div>
         <div>
-          <p>ジャンル
+          <p>
+            <%= f.label "ジャンル" %>
             <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "--選択してください--" %>
           </p>
         </div>
         <div>
-          <p>税抜価格
+          <p>
+            <%= f.label "商品説明" %>
             <%= f.text_field :price %>円
           </p>
         </div>

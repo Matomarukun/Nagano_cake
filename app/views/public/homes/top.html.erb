@@ -1,33 +1,41 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-3  genres">
-      <div class=""><h3>ジャンル検索</h3></div>
-      <div>
-        <li>ケーキ</li>
-        <li>焼き菓子</li>
-        <li>プリン</li>
-        <li>キャンディ</li>
-      </div>
-    </div>
+<div class="col-md-3"  >
+  <div  class="genre-search">
+    <table>
+      <tr>
+        <th><h4><strong>ジャンル検索</strong></h4></th>
+      </tr>
+        <% @genres.first(5).each do |genre| %>
+          <tr class="genre-name">
+            <td><li><%= link_to genre.name, items_path %></li></td>
+          </tr>
+        <% end %>
+    </table>
+  </div>
+</div>
 
-    <div class="col-md-9 top">
-      <div class="font">
-        <div class="pr">
-          <p>
-            ようこそ、NaganoCakeへ！<br>
-            このサイトは、ケーキ販売のECサイトになります。<br>
-            会員でない方も商品の閲覧はできますが、<br>
-            購入には会員登録が必要になります。<br>
-          </p>
-        </div>
-      </div>
-      <div class="">
-        <h2>オススメ商品</h2>
-      </div>
-      <div>
+<div class="col-md-9">
+<div class="example">
+  <p>
+    ようこそ、<strong cla>NaganoCake</strong>へ！<br>
+    このサイトは、ケーキ販売のECサイトになります。<br>
+    会員でない方も商品の閲覧はできますが、<br>
+    購入には会員登録が必要になります。<br>
+  </p>
+  <%= image_tag 'cake.jpg' %>
+</div>
+<div>
+  <h2><strong>オススメ商品</strong></h2>
+</div>
+  <div class="row" >
+    <% @items.last(3).each do |item| %>
+      <div class="col-md-4">
         <div>
-            <li>商品名</li>
+            <%= attachment_image_tag item, :image, fallback:"no_image.jpg", size: '150x100' %>
+            <div class="item-name">
+              <h4><%= item.name %></h4></div>
+            <div><h4>¥ <%= item.price %></h4></div>
         </div>
-    </div>
+      </div>
+    <% end %>
   </div>
 </div>
