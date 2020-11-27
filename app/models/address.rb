@@ -2,6 +2,10 @@ class Address < ApplicationRecord
 
   belongs_to :customer
 
+  def view_name
+    '(' + self.postal_code.to_s + ')' + self.address + self.name
+  end
+
   # include JpPrefecture
   # jp_prefecture :prefecture_code
 

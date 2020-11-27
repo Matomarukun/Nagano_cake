@@ -18,7 +18,6 @@ Rails.application.routes.draw do
 
   devise_for :customers , controllers: { registrations: 'customers/registrations' }
 
-
   scope module: :public do
     resources :customers, only:[:edit, :update] do
       collection do
@@ -29,8 +28,8 @@ Rails.application.routes.draw do
     end
     resources :orders, only:[:index, :create, :show, :new] do
       collection do
-       get :confirm
-       get  :complete
+       post :confirm
+       get :complete
       end
     end
 
