@@ -34,9 +34,11 @@ class Customer < ApplicationRecord
       validates :postal_code, :phone_number
     end
 
+
     # with_options length: { minimum: 6 } do
     #   validates :password
     # end
+
   end
 
 end
