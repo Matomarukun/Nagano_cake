@@ -1,3 +1,53 @@
 <h3><mark>注文履歴詳細</mark></h3>
-<table>
-</table>
+
+  <div>
+    購入者
+    <%= @order.customer.last_name %>
+    <%= @order.customer.first_name %>
+  </div>
+  <div>
+    配送先
+    <%= @order.postal_code %>
+    <%= @order.address %>
+  </div>
+  <div>
+    支払い方法
+    <%= @order.method_pay %>
+  </div>
+  <%= form_for(@order, url: admin_order_path) do |f|  %>
+    <div>
+      注文ステータス
+      <%= f.select :status, Order.statuses, {prompt: "選択してください"}, class: "prefecture-select" %>
+      <%= f.submit "更新" %>
+    </div>
+ <% end %>
+
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>商品名</th>
+        <th>単価（税込）</th>
+        <th>数量</th>
+        <th>小計</th>
+        <th>製作ステータス</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <% @order_items.each do |order_item| %>
+      <tr>
+        <td><%= order_item.item.name %></td>
+        <td><%= order_item.item.price %></td>
+        <td><%= order_item.amount %></td>
+        <td><%= order_item.price %></td>
+        <td>
+          <%= form_with model: order_item, url: admin_order_detail_path(order_item), method: :patch, local: true do |f|  %>
+            <%= f.select :production_status, @order_items.production_statuses, {prompt: "着手不可"}, class: "prefecture-select" %>
+            <%= f.submit '更新', class: "btn btn-primary" %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>

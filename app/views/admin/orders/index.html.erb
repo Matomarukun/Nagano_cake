@@ -9,7 +9,9 @@
     </tr>
   </thead>
   <tbody>
-     <% @orders.each do |order|　%>
+
+     <% @orders.each do |order| %>
+
     <tr>
       <td>
         <p>
@@ -18,17 +20,17 @@
       </td>
       <td>
         <p>
-          <%= order.last_name %><%= order.first_name %>
+          <%= order.customer.last_name %><%= order.customer.first_name %>
         </p>
       </td>
       <td>
         <p>
-          <%= order.amount %>
+          <!--<= order.amount %>-->
         </p>
       </td>
       <td>
-        <p>確認
-          <!--制作ステータス-->
+        <p>
+          <%= order.status %>
         </p>
       </td>
     </tr>

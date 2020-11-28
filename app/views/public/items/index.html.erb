@@ -1,17 +1,19 @@
-<div class="col-md-3"  >
-  <div  class="genre-search">
-    <table>
-      <tr>
+
+<div class="container">
+  <div class="col-md-3"  >
+    <div  class="genre-search">
+      <table>
+       <tr>
         <th><h4><strong>ジャンル検索</strong></h4></th>
-      </tr>
-        <% @genres.first(5).each do |genre| %>
-          <tr class="genre-name">
-            <td><li><%= link_to genre.name %></li></td>
-          </tr>
-        <% end %>
-    </table>
+       </tr>
+       <% @genres.first(5).each do |genre| %>
+        <tr class="genre-name">
+          <td><li><%= link_to genre.name %></li></td>
+         </tr>
+       <% end %>
+      </table>
+    </div>
   </div>
-</div>
 
 <div class="col-md-9">
   <div>
@@ -27,7 +29,6 @@
           <% end %>
             <div><h4>¥ <%= item.price %></h4></div>
         </div>
-      </div>
-    <% end %>
-  </div>
+       <% end %>
+    </div>
 </div>
