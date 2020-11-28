@@ -17,7 +17,8 @@
   <%= form_for(@order, url: admin_order_path) do |f|  %>
     <div>
       注文ステータス
-      <%= f.select :status, Order.statuses, {prompt: "選択してください"}, class: "prefecture-select" %>
+      <!--%= f.select :status, Order.statuses, {prompt: "選択してください"}, class: "prefecture-select" %>-->
+      <%= f.select :status, {'入金待ち': '入金待ち', '入金確認': '入金確認', '製作中': '製作中', '発送準備中': '発送準備中', '発送済み': '発送済み'} %>
       <%= f.submit "更新" %>
     </div>
  <% end %>
@@ -42,8 +43,8 @@
         <td><%= order_item.amount %></td>
         <td><%= order_item.price %></td>
         <td>
-          <%= form_with model: order_item, url: admin_order_detail_path(order_item), method: :patch, local: true do |f|  %>
-            <%= f.select :production_status, @order_items.production_statuses, {prompt: "着手不可"}, class: "prefecture-select" %>
+          <%= form_with model: order_item, url: admin_order_path(order_item), method: :patch, local: true do |f|  %>
+            <%= f.select :production_status, {'制作不可': '制作不可', '制作待ち': '制作待ち', '製作中': '製作中', '制作完了': '制作完了'} %>
             <%= f.submit '更新', class: "btn btn-primary" %>
           <% end %>
         </td>

@@ -11,7 +11,6 @@
   <tbody>
 
      <% @orders.each do |order| %>
-
     <tr>
       <td>
         <p>
@@ -24,9 +23,11 @@
         </p>
       </td>
       <td>
+        <% order.order_items.each do |order_item| %>
         <p>
-          <!--<= order.amount %>-->
+          <%= order_item.amount %>
         </p>
+        <% end %>
       </td>
       <td>
         <p>
@@ -37,4 +38,3 @@
       <% end %>
   </tbody>
 </table>
-<%= paginate @orders %>
