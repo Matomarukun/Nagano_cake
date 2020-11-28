@@ -1,7 +1,6 @@
 class Admin::OrdersController < ApplicationController
-
   def index
-    @orders = Order.all
+    @orders = Order.all.page(params[:page]).per(10)
   end
 
   def show
@@ -15,20 +14,10 @@ class Admin::OrdersController < ApplicationController
     redirect_to admin_order_path(@order)
   end
 
-
   private
   def order_params
-    params.require(:order).permit(:item_id, :order_id, :price, :amount, :production_status)
+    params.require(:order).permit(:customer_id, :status, :order_sum, :shipping, :method_pay, :name, :postal_code, :address, :created_at, :updated_at)
   end
-
-# def order_params
-#     params.require(:order).permit(:item_id, :order_id, :status, :order_sum, :shipping, :method_pay, :name, :postal_code, :address)
-#   end
-
-#   def order_item_params
-#     params.require(:order_item).permit(:order_id, :item_id, :production_status, :amount, :price)
-#   end
-
 
 end
 
