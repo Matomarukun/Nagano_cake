@@ -32,18 +32,16 @@
   height: 400px;
   width: 200px;
   border: 1px solid;
-
+  background-color: #F5F5F5;
 }
 
 .genre-search th {
-  border: 2px solid;
-  background-color: #E4FF8D;
-  color: 	#FF8856;
+  border: 1px solid;
+  // background-color: #E4FF8D;
 }
 
-.genre-name a {
-  padding-bottom: 15px;
-
+.genre-name li {
+  padding: 10px;
 }
 
 .genre-search a {
@@ -64,12 +62,9 @@
 .item-image {
   background-color: red;
 }
-.item-name a {
+.item-name {
   color: #000;
 }
-
-
-
 
 // about-page
 .about {
