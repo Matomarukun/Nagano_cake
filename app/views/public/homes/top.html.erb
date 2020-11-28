@@ -4,7 +4,7 @@
       <tr>
         <th><h4><strong>ジャンル検索</strong></h4></th>
       </tr>
-        <% @genres.first(5).each do |genre| %>
+        <% @genres.first(4).each do |genre| %>
           <tr class="genre-name">
             <td><li><%= link_to genre.name, items_path %></li></td>
           </tr>

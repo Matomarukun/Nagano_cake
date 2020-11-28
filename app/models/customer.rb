@@ -20,7 +20,7 @@ class Customer < ApplicationRecord
     end
 
     with_options length: { minimum: 6 } do
-      validates :password
+      # validates :password
     end
   end
 
