@@ -24,6 +24,7 @@
   width: 750px;
 }
 
+//ジャンル
 .genre-search {
   border-style: solid;
   border-width: thin;
@@ -31,15 +32,16 @@
   height: 400px;
   width: 200px;
   border: 1px solid;
+  background-color: #F5F5F5;
 }
 
 .genre-search th {
-  border: 2px solid;
+  border: 1px solid;
+  // background-color: #E4FF8D;
 }
 
-.genre-name a {
-  padding-bottom: 15px;
-
+.genre-name li {
+  padding: 10px;
 }
 
 .genre-search a {
@@ -52,7 +54,12 @@
  text-decoration: none;
 }
 
-.item-name a {
+// 商品
+.item-block {
+  margin: 10px;
+}
+
+.item-name {
   color: #000;
 }
 
