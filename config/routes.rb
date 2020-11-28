@@ -23,7 +23,7 @@ Rails.application.routes.draw do
       collection do
         get :my_page
         get :unsubscribe
-        put :withdraw
+        delete :withdraw
       end
     end
     resources :orders, only:[:index, :create, :show, :new] do
