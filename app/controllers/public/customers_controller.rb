@@ -3,7 +3,7 @@ class Public::CustomersController < ApplicationController
   end
 
   def unsubscribe
-      @customer = current_customer
+
   end
 
    def withdraw
