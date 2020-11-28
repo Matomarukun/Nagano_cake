@@ -7,4 +7,8 @@ class Order < ApplicationRecord
   # has_many :cart_items
   has_many :order_items
 
+  def sum_of_price
+    order_sum + shipping
+  end
+
 end

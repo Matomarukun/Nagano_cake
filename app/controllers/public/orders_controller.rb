@@ -22,7 +22,7 @@ class Public::OrdersController < ApplicationController
       @order.name = Address.find(params[:order][:select_address]).name
 
     elsif params[:order][:address_number] ==  "2"
-      @address = Address.new()
+      @address = Address.new
       @address.address = params[:order][:address]
       @address.name = params[:order][:name]
       @address.postal_code = params[:order][:postal_code]
@@ -58,16 +58,18 @@ class Public::OrdersController < ApplicationController
 
   def index
     @orders = current_customer.order
-
   end
 
- 
+
   def show
     @order = Order.find(params[:id])
+    @cart_items = CartItem.where(customer_id: current_customer.id)
+    @order_items = @order.order_items
   end
+
   private
     def order_params
-      params.require(:order).permit(:order_sum, :method_pay, :name, :postal_code, :address)
+      params.require(:order).permit(:order_sum, :method_pay, :name, :postal_code, :address, :shipping)
     end
 
 end
