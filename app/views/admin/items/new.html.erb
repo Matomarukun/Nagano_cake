@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="row">
+    <h3><mark>商品新規登録</mark></h3>
+    <div>
+      <%= render 'errors', hoge: @item %>
+    </div>
+  <%= form_with model: @item, url: admin_items_path, local:true do |f| %>
+    <div class="col-md-5">
+      <div>
+        <div>
+        <%= f.file_field :image, class: 'img_field', style: 'display:none;' %>
+        </div>
+        <%= attachment_image_tag @item, :image, :fill, 450, 450, format: 'jpg', onClick: "$('.img_field').click()", class: 'center-block img-thumbnail img-responsive img_prev' %>
+      </div>
+      <div>
+        <%= f.attachment_field :image %>
+      </div>
+    </div>
+    <div class="col-md-7">
+        <div>
+          <p>
+            <%= f.label "商品名" %>
+            <%= f.text_field :name %>
+          </p>
+        </div>
+        <div>
+          <p>
+            <%= f.label "商品説明" %>
+            <%= f.text_area :introduction %>
+          </p>
+        </div>
+        <div>
+
+          <p>
+            <%= f.label "ジャンル" %>
+            <%= f.collection_select :genre_id, Genre.all, :id, :name, {include_blank: '--選択してください--'}  %>
+          </p>
+
+        </div>
+        <div>
+          <p>
+            <%= f.label "税抜価格" %>
+            <%= f.text_field :price %>円
+          </p>
+        </div>
+        <div>
+          <p>
+            <%= f.label "販売ステータス" %>
+            <%= f.select :is_active, [["販売中", true], ["売切れ", nil]], include_blank: "--選択してください--" %>
+          </p>
+        </div>
+        <div>
+          <%= f.submit "新規登録", class: "btn btn-info active" %>
+        </div>
+    </div>
+
+    <div>
+    </div>
+  <% end %>
+  </div>
+</div>

@@ -1,0 +1,78 @@
+// Place all the styles related to the public::homes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.example {
+  position: relative;
+}
+.example p {
+  position: absolute;
+  color: #FF00FF;
+  font-size: 22px;
+  top: 50%;
+  left: 43%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+}
+.example p strong {
+  color: #fff;
+}
+.example img {
+  width: 100%;
+  width: 750px;
+}
+
+//ジャンル
+.genre-search {
+  border-style: solid;
+  border-width: thin;
+  list-style-type: none;
+  height: 400px;
+  width: 200px;
+  border: 1px solid;
+  background-color: #F5F5F5;
+}
+
+.genre-search th {
+  border: 1px solid;
+  // background-color: #E4FF8D;
+}
+
+.genre-name li {
+  padding: 10px;
+}
+
+.genre-search a {
+  color: #808080;
+  padding: 5px;
+  font-size: 18px;
+}
+
+.genre-search a:hover {
+ text-decoration: none;
+}
+
+// 商品
+.item-block {
+  margin: 10px;
+}
+
+.item-name {
+  color: #000;
+}
+
+// about-page
+.about {
+  font-size: 70px;
+  padding-bottom: 30px;
+}
+.text {
+  font-size: 20px;
+}
+
+.image_box {
+  width: 700px;
+  height: 350px;
+}

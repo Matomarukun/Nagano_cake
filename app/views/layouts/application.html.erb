@@ -2,14 +2,51 @@
 <html>
   <head>
     <title>WorkGithub</title>
-    <%= csrf_meta_tags %>
+    <!--%= csrf_meta_tags %>-->
     <%= csp_meta_tag %>
+    <%= csrf_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="back-color">
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light">
+       <div class="logo navbar-left">
+          <%= link_to root_path do %>
+            <%= image_tag 'logo.png' ,:size =>'150x60' %>
+          <% end %>
+       </div>
+      <ul class="nav pull-right nav-pills header-botton">
+      <% if customer_signed_in? %>
+      　<li>ようこそ<%= current_customer.first_name_kana %>さん！
+        <li><%= link_to ' マイページ', my_page_customers_path, class: "btn btn-primary" %></li>
+        <li><%= link_to ' 商品一覧', items_path, class: "btn btn-success" %></li>
+        <li><%= link_to ' カート', cart_items_path, class: "btn btn-info" %></li>
+        <li><%= link_to ' ログアウト', destroy_customer_session_path, method: :delete, "data-confirm" => "ログアウトしますか？", class: "btn btn-danger" %></li>
+      <% elsif admin_signed_in? %>
+        <li><%= link_to ' 商品一覧', admin_items_path, class: "btn btn-primary" %></li>
+        <li><%= link_to ' 会員一覧', admin_customers_path, class: "btn btn-success" %></li>
+        <li><%= link_to ' 注文履歴一覧', admin_orders_path, class: "btn btn-info" %></li>
+        <li><%= link_to ' ジャンル一覧', admin_genres_path, class: "btn btn-warning" %></li>
+        <li><%= link_to ' ログアウト', destroy_admin_session_path, method: :delete, "data-confirm" => "ログアウトしますか？", class: "btn btn-danger" %></li>
+      <% else %>
+        <li><%= link_to ' About', about_path, class: "btn btn-primary" %></li>
+        <li><%= link_to ' 商品一覧', items_path, class: "btn btn-success" %></li>
+        <li><%= link_to ' 新規登録', new_customer_registration_path, class: "btn btn-warning" %></li>
+        <li><%= link_to ' ログイン', new_customer_session_path, class: "btn btn-danger" %></li>
+      <% end %>
+      </ul>
+    </header>
+
+    <div class="container body-down">
+      <div class="row">
+        <%= yield %>
+      </div>
+    </div>
+
+    <footer>
+    </footer>
   </body>
 </html>

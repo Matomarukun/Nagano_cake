@@ -1,0 +1,22 @@
+// Place all the styles related to the public::customers controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.span_word {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.registrations {
+　position: relative;
+  top: 300px;
+  left: 300px;
+  background-color: red;
+}
+table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+.my_active {
+  width: 30%;
+}

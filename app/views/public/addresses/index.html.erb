@@ -1,0 +1,29 @@
+<div class="container">
+ <div class='row'>
+  <h3><mark>配送先登録 / 一覧</mark></h3>
+
+  <%= render 'form', address: @address %>
+
+ <tbody>
+  <div class="table-responsive">
+   <table class="table">
+      <tr>
+        <th>郵便番号</th>
+        <th>住所</th>
+        <th>宛名</th>
+        <th colspan="2">    </th>
+      </tr>
+      <% @addresses.each do |address| %>
+      <tr>
+        <th><%= address.postal_code %></th>
+        <th><%= address.address %></th>
+        <th><%= address.name %></th>
+        <td><%= link_to '編集する', edit_address_path(address), class: "btn-sm btn-success" %></td>
+        <td><%= link_to '削除する', address_path(address), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn-sm btn-danger" %></td>
+      </tr>
+      <% end %>
+    </table>
+   </div>
+  </tbody>
+ </div>
+</div>

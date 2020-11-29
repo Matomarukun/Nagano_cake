@@ -1,0 +1,42 @@
+// Place all the styles related to the public::orders controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+table {
+  table-layout: fixed;
+  width: 100%;
+}
+.created_at {
+  width: 10%;
+}
+
+.addresses {
+  width: 45%;
+}
+
+.order_items {
+  width: 15%;
+}
+
+.pay {
+  width: 10%;
+}
+
+.show_ordre {
+  width: 60%;
+}
+
+.show_tanka {
+  width: 20%;
+}
+
+.show_kazu {
+  width: 10%;
+}
+.visibility {
+  visibility:hidden;
+}
+.wrapper {
+  display: flex;
+	align-items: center;
+	justify-content: center;
+}
