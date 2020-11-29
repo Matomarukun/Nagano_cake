@@ -16,7 +16,7 @@
   </div>
 
     <div class="col-xs-6">
-      <%= attachment_image_tag @item, :image, fallback:"no_image.jpg", size: '500x300' %>
+      <%= attachment_image_tag @item, :image, fallback:"no_image.jpg", size: '500x350' %>
     </div>
     <div class="col-xs-3">
       <div><h3><strong><%= @item.name %></strong></h3></div>
@@ -25,7 +25,7 @@
       <%= form_with model: @cart_item,　url: cart_items_path, local: true do |f|  %>
         <%= f.hidden_field :item_id %>
         <%= f.select :amount,[1,2,3,4,5,6,7,8,9,10], {include_blank: '個数選択'}  %>
-        <%= f.submit "カートに入れる" %>
+        <%= f.submit "カートに入れる", class: 'btn btn-primary' %>
       <% end %>
     </div>
   </div>
